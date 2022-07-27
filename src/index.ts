@@ -24,6 +24,7 @@ import * as webpack from './webpack';
 
 export { webpack };
 export { isInjected, isReady } from './webpack';
+export * as calcme from './calcme';
 
 //export { config } from './config';
 
@@ -54,10 +55,9 @@ export {
   waitFor,
 } from './eventEmitter';
 
-declare const __VERSION__: string;
-declare const __SUPPORTED_CALCME_VERSION__: string;
+declare const __VERSION__ = '1.0.0';
 export const version = __VERSION__;
-export const supportedCalcMeVersion = __SUPPORTED_CALCME_VERSION__;
+export const supportedCalcMeVersion = '1.0.0';
 export const license = 'Apache-2.0';
 
 webpack.injectLoader();

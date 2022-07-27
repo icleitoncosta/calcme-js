@@ -56,11 +56,9 @@ export let webpackRequire: (<T = any>(moduleId: string) => T) & {
 };
 
 export function injectLoader(): void {
-  console.log('tentativa de injecao');
   if (isInjected) {
     return;
   }
-  console.log('ja ta injetado');
 
   const chunkName = 'webpackJsonp';
 
@@ -70,7 +68,7 @@ export function injectLoader(): void {
   const id = Date.now();
   chunk.push([
     [id],
-    {},
+    [id],
     async (__webpack_require__: any) => {
       webpackRequire = __webpack_require__;
 
@@ -206,6 +204,7 @@ export function modules(
   reverse = false
 ): { [key: string]: any } {
   const modules: { [key: string]: any } = {};
+  console.log(modules);
 
   let ids = Object.keys(webpackRequire.m);
 
