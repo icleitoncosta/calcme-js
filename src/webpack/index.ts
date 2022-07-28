@@ -1,5 +1,5 @@
 /*!
- * Copyright 2021 Saturno Team
+ * Copyright 2022 Saturno Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ import Debug from 'debug';
 
 import { internalEv } from '../eventEmitter';
 
-const debug = Debug('CALCME-JS:webpack');
+const debug = Debug('CalcMe-JS:webpack');
 
 /**
  * Is setted true when the loader is injected
@@ -53,54 +53,48 @@ export let webpackRequire: (<T = any>(moduleId: string) => T) & {
    * the chunk ensure function
    */
   e: (id: string) => Promise<void>;
+  /**
+   * The module cache - use for nothing at now
+   */
+  c: { [key: string]: any };
 };
 
-export function injectLoader(): void {
+export async function injectLoader(): Promise<void> {
   if (isInjected) {
     return;
   }
+  isInjected = true;
 
   const chunkName = 'webpackJsonp';
 
   const self = window as any;
   const chunk = (self[chunkName] = self[chunkName] || []);
-
   const id = Date.now();
+  let webpackVar: any = null;
   chunk.push([
     [id],
-    [id],
-    async (__webpack_require__: any) => {
-      webpackRequire = __webpack_require__;
-
-      isInjected = true;
-      debug('injected');
-      await internalEv.emitAsync('webpack.injected').catch(() => null);
-
-      const availablesRuntimes = new Array(10000)
-        .fill(1)
-        .map((v, k) => v + k)
-        .filter((v) => {
-          const filename = webpackRequire.u(v);
-          if (filename.includes('undefined')) {
-            return false;
-          }
-          if (filename.includes('locales')) {
-            return navigator.languages.some((lang) =>
-              filename.includes(`locales/${lang}`)
-            );
-          }
-          return true;
-        });
-
-      await Promise.all(
-        availablesRuntimes.reverse().map((v) => webpackRequire.e(v))
-      );
-
-      isReady = true;
-      debug('ready to use');
-      await internalEv.emitAsync('webpack.ready').catch(() => null);
+    {
+      0: async (module: any, exports: any, __webpack_require__: any) => {
+        //module.exports = __webpack_require__('chunk1-main-module');
+      },
+      'chunk1-main-module': (
+        module: any,
+        exports: any,
+        __webpack_require__: any
+      ) => {
+        //console.log(__webpack_require__('4Z5f'));
+        webpackVar = __webpack_require__;
+      },
     },
+    [['chunk1-main-module']],
   ]);
+  webpackRequire = webpackVar;
+  isInjected = true;
+  isReady = true;
+  await internalEv.emitAsync('webpack.injected').catch(() => null);
+  debug('injected');
+  await internalEv.emitAsync('webpack.ready').catch(() => null);
+  debug('ready to use');
 }
 
 const sourceModuleMap = new Map<string, boolean>();
@@ -204,7 +198,6 @@ export function modules(
   reverse = false
 ): { [key: string]: any } {
   const modules: { [key: string]: any } = {};
-  console.log(modules);
 
   let ids = Object.keys(webpackRequire.m);
 
