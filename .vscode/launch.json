@@ -40,7 +40,7 @@
           "webpack://?:*/*": "${workspaceFolder}/*",
           "webpack:///([a-z]):/(.+)": "$1:/$2",
           "/dist": "${workspaceFolder}/dist",
-          "/": "${workspaceFolder}/calcme-source"
+          "/": "${workspaceFolder}/source"
         },
         "timeout": 60000,
         "restart": true
