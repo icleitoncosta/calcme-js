@@ -14,10 +14,15 @@
  * limitations under the License.
  */
 
-export * from './classes';
-//export * as enums from './enums';
-export { _moduleIdMap } from './exportModule';
-//export * as functions from './functions';
-//export * from './misc';
-//export * from './models';
-//export * from './stores';
+import { exportModule } from '../exportModule';
+
+export declare class Authentication {
+  constructor(e?: any);
+  get currentUserValue(): string;
+
+  login(e?: any): any;
+  setLoginValue(e?: any): any;
+  logout(): any;
+}
+export declare function login(e: any): Promise<any>;
+exportModule(exports, { Authentication: ['63ps'] }, (m) => m['63ps']);

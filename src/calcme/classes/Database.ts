@@ -14,10 +14,15 @@
  * limitations under the License.
  */
 
-export * from './classes';
-//export * as enums from './enums';
-export { _moduleIdMap } from './exportModule';
-//export * as functions from './functions';
-//export * from './misc';
-//export * from './models';
-//export * from './stores';
+import { exportModule } from '../exportModule';
+
+export declare class Database {
+  constructor(e?: any);
+  get(): any;
+  delete(e?: any): any;
+  setLoginValue(e?: any): any;
+  getModules(): any;
+  getPlans(): any;
+  isTrial(): any;
+}
+exportModule(exports, { Database: 'a' }, (m) => m.a);

@@ -25,6 +25,7 @@ import * as webpack from './webpack';
 export { webpack };
 export { isInjected, isReady } from './webpack';
 export * as calcme from './calcme';
+export * as auth from './auth';
 
 //export { config } from './config';
 

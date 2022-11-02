@@ -14,10 +14,18 @@
  * limitations under the License.
  */
 
-export * from './classes';
-//export * as enums from './enums';
-export { _moduleIdMap } from './exportModule';
-//export * as functions from './functions';
-//export * from './misc';
-//export * from './models';
-//export * from './stores';
+import { Authentication } from '../../calcme/classes/Login';
+
+interface Login {
+  username: string;
+  password: string;
+}
+/**
+ * Function to login user
+ *
+ * @param loginData {username: "seu_usuario", password: "suasenha" }
+ * @returns void
+ */
+export function login(loginData: Login) {
+  return new Authentication().login(loginData);
+}
