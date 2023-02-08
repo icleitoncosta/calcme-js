@@ -1,5 +1,5 @@
 /*!
- * Copyright 2023 Saturno Team
+ * Copyright 2022 Saturno Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,29 +14,12 @@
  * limitations under the License.
  */
 
-import axios from 'axios';
+import { expect, test } from '@jest/globals';
 
-import { login } from '../auth';
-import { config } from '../config';
+import { get } from '../src/budget/';
 
-const request = axios.create({
-  baseURL: config.baseURL,
-  timeout: 3000,
-  headers: { 'x-access-token': config.token as string },
+test('teste para retornar orçamentos', async () => {
+  const data = await get();
+  console.log(data);
+  expect(data);
 });
-
-request.defaults.headers.common['Authorization'] = `Bearer ${config.token}`;
-
-request.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async (error) => {
-    if (error.response.status === 401) {
-      await login();
-    }
-    return error;
-  }
-);
-
-export { request };

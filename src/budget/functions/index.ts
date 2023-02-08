@@ -14,4 +14,6 @@
  * limitations under the License.
  */
 
+export { editDetailBudget } from './editDetailBudget';
 export { get } from './get';
+export { getBudgetById } from './getBudgetById';

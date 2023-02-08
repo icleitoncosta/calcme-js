@@ -16,50 +16,40 @@
 
 import { login } from '../../auth';
 import { Budget } from '../../types/Budget';
-import { Pageable } from '../../types/Pageable';
-import { Sort } from '../../types/Sort';
 import { request } from '../../util/request';
+import { getBudgetById } from './getBudgetById';
 
 /**
- * Function to get budgets
- * Função para retornar orçamentos
+ * Função para editar os detalhes simples do orçamento
+ * Nota: não use essa função para editar itens do orçamento
  *
  * @example
  * ```javascript
- * // Get budgets first page with 10 elements
- * await calcme.budget.get(0, 10);
- *
- * // Get budgets second page with 10 elements
- * await calcme.budget.get(1, 10);
+ * // Editar o dado de contato
+ * await calcme.budget.editDetailBudget('5645457ssdas89ad', {
+ * contato: 'Nome do contato' });
  * ```
  * @category Budget
  */
-export async function get(
-  page = 0,
-  limit = 10
+export async function editDetailBudget(
+  id: string,
+  payload: Partial<Budget>
 ): Promise<{
-  data: {
-    content: Budget[];
-    empty: boolean;
-    first: boolean;
-    last: boolean;
-    number: number;
-    numberOfElements: number;
-    pageable: Pageable;
-    size: number;
-    sort: Sort;
-    totalElements: number;
-    totalPages: number;
-  };
+  data: Budget;
   errors: any;
 }> {
   try {
-    const { data }: any = await request.get(`/estimate/list/${page}/${limit}`);
-    return data;
+    const budget = await getBudgetById(id);
+    const edit = {
+      ...budget,
+      ...payload,
+    };
+    const test: any = await request.put(`/estimate`, edit);
+    return test.data;
   } catch (error: any) {
     if (error.response.status === 401) {
       await login();
-      return await get(page, limit);
+      return await editDetailBudget(id, payload);
     } else if (error.response) {
       return error.response.data;
     } else {

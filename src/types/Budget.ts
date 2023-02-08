@@ -27,7 +27,7 @@ export interface Budget {
   cliente: Customer;
   vendedor: any;
   agencia: any;
-  contato: any;
+  contato: string | null;
   data: string;
   dataEntrega: string;
   horaEntrega: string;

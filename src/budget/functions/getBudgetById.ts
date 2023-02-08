@@ -16,50 +16,29 @@
 
 import { login } from '../../auth';
 import { Budget } from '../../types/Budget';
-import { Pageable } from '../../types/Pageable';
-import { Sort } from '../../types/Sort';
 import { request } from '../../util/request';
 
 /**
- * Function to get budgets
- * Função para retornar orçamentos
+ * Função que retorna os dados básicos de um orçamento
  *
  * @example
  * ```javascript
- * // Get budgets first page with 10 elements
- * await calcme.budget.get(0, 10);
- *
- * // Get budgets second page with 10 elements
- * await calcme.budget.get(1, 10);
+ * // Get simple data of a budget
+ * await calcme.budget.getBudgetById('63e3e4a04da228181a9211dd');
  * ```
  * @category Budget
  */
-export async function get(
-  page = 0,
-  limit = 10
-): Promise<{
-  data: {
-    content: Budget[];
-    empty: boolean;
-    first: boolean;
-    last: boolean;
-    number: number;
-    numberOfElements: number;
-    pageable: Pageable;
-    size: number;
-    sort: Sort;
-    totalElements: number;
-    totalPages: number;
-  };
+export async function getBudgetById(id: string): Promise<{
+  data: Budget;
   errors: any;
 }> {
   try {
-    const { data }: any = await request.get(`/estimate/list/${page}/${limit}`);
+    const { data }: any = await request.get(`/estimate/${id}`);
     return data;
   } catch (error: any) {
     if (error.response.status === 401) {
       await login();
-      return await get(page, limit);
+      return await getBudgetById(id);
     } else if (error.response) {
       return error.response.data;
     } else {
