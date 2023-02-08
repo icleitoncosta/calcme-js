@@ -9,4 +9,3 @@
 /userDataDir*
 /source
 yarn.lock
-src/config.ts

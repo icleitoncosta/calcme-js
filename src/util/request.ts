@@ -18,14 +18,15 @@ import axios from 'axios';
 
 import { login } from '../auth';
 import { config } from '../config';
+import userData from '../user.json';
 
 const request = axios.create({
   baseURL: config.baseURL,
   timeout: 3000,
-  headers: { 'x-access-token': config.token as string },
+  headers: { 'x-access-token': userData.token as string },
 });
 
-request.defaults.headers.common['Authorization'] = `Bearer ${config.token}`;
+request.defaults.headers.common['Authorization'] = `Bearer ${userData.token}`;
 
 request.interceptors.response.use(
   (response) => {

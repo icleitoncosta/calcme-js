@@ -14,7 +14,11 @@
  * limitations under the License.
  */
 
+import fs from 'fs/promises';
+import path from 'path';
+
 import { config } from '../../config';
+import userData from '../../user.json';
 import { request } from '../../util/request';
 
 interface Login {
@@ -43,8 +47,8 @@ export async function login(loginData?: Login): Promise<{
   };
   errors: any;
 }> {
-  const user = loginData?.username ? loginData.username : config.login;
-  const pass = loginData?.password ? loginData.password : config.password;
+  const user = loginData?.username ? loginData.username : userData.login;
+  const pass = loginData?.password ? loginData.password : userData.password;
 
   try {
     const { data }: any = await request.post('/login', {
@@ -53,7 +57,13 @@ export async function login(loginData?: Login): Promise<{
       lookup: config.fakeLookup,
     });
     if (data.errors.length === 0) {
-      config.token = data.data.token;
+      userData.login = user;
+      userData.password = pass;
+      userData.token = data.data.token;
+      await fs.writeFile(
+        path.join(__dirname, '../../user.json'),
+        JSON.stringify(userData, null, 2)
+      );
     }
     return data;
   } catch (error: any) {

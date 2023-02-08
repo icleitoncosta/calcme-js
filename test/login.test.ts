@@ -19,7 +19,10 @@ import { expect, test } from '@jest/globals';
 import { login } from '../src/auth/';
 
 test('teste login data', async () => {
-  const data = await login();
+  const data = await login({
+    username: 'seuemail@gmail.com',
+    password: 'suasenha@123',
+  });
   console.log(data);
   expect(data);
 });

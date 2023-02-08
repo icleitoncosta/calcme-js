@@ -15,8 +15,6 @@
  */
 
 export const config = {
-  login: 'seulogin@gmail.com',
-  password: 'suasenha',
   baseURL: 'https://serv.calcme.com.br/api',
   // Change data to your location - check with https://www.iplocation.net/
   fakeLookup: {
@@ -32,5 +30,4 @@ export const config = {
     asn: 'AS7063',
     isp: 'LESTE FLU SERVICOS DE TELECOM LTDA',
   },
-  token: '', // dont change this value, internal use
 };
