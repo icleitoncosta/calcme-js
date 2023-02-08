@@ -27,7 +27,7 @@ interface Login {
  * @param loginData {username: "seu_usuario", password: "suasenha" }
  * @returns void
  */
-export async function login(loginData: Login): Promise<{
+export async function login(loginData?: Login): Promise<{
   data: {
     token: string;
     user: any;
@@ -39,11 +39,11 @@ export async function login(loginData: Login): Promise<{
   };
   errors: any;
 }> {
-  const user = loginData.username ? loginData.username : config.login;
-  const pass = loginData.password ? loginData.password : config.password;
+  const user = loginData?.username ? loginData.username : config.login;
+  const pass = loginData?.password ? loginData.password : config.password;
 
   try {
-    const data: any = await request.post('/login', {
+    const { data }: any = await request.post('/login', {
       username: user,
       password: pass,
       lookup: config.fakeLookup,
@@ -53,7 +53,10 @@ export async function login(loginData: Login): Promise<{
     }
     return data;
   } catch (error: any) {
-    console.log(error);
-    return error;
+    if (error.response) {
+      return error.response.data;
+    } else {
+      return error;
+    }
   }
 }
