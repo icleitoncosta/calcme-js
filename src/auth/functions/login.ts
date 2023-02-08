@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-import { Authentication } from '../../calcme/classes/Login';
+import { config } from '../../config';
+import { request } from '../../util/request';
 
 interface Login {
-  username: string;
-  password: string;
+  username?: string;
+  password?: string;
 }
 /**
  * Function to login user
@@ -26,6 +27,33 @@ interface Login {
  * @param loginData {username: "seu_usuario", password: "suasenha" }
  * @returns void
  */
-export function login(loginData: Login) {
-  return new Authentication().login(loginData);
+export async function login(loginData: Login): Promise<{
+  data: {
+    token: string;
+    user: any;
+    printshop: any;
+    menu: any;
+    auth: {
+      authority: string;
+    }[];
+  };
+  errors: any;
+}> {
+  const user = loginData.username ? loginData.username : config.login;
+  const pass = loginData.password ? loginData.password : config.password;
+
+  try {
+    const data: any = await request.post('/login', {
+      username: user,
+      password: pass,
+      lookup: config.fakeLookup,
+    });
+    if (data.errors.length === 0) {
+      config.token = data.data.token;
+    }
+    return data;
+  } catch (error: any) {
+    console.log(error);
+    return error;
+  }
 }
