@@ -19,7 +19,7 @@
         "!",
         {
           "pattern": "^ \\* Copyright \\d{4} Saturno Team$",
-          "template": " * Copyright 2022 Saturno Team"
+          "template": " * Copyright 2023 Saturno Team"
         },
         " *",
         " * Licensed under the Apache License, Version 2.0 (the \"License\");",
