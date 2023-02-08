@@ -18,14 +18,18 @@ import { config } from '../../config';
 import { request } from '../../util/request';
 
 interface Login {
-  username?: string;
-  password?: string;
+  username: string;
+  password: string;
 }
 /**
- * Function to login user
+ * Function to login user, and get data
  *
- * @param loginData {username: "seu_usuario", password: "suasenha" }
- * @returns void
+ * @example
+ * ```javascript
+ * // Get login data
+ * await calcme.login({username: 'usuario@gmail.com', password: 'senha@123'});
+ * ```
+ * @category Auth
  */
 export async function login(loginData?: Login): Promise<{
   data: {
