@@ -14,8 +14,4 @@
  * limitations under the License.
  */
 
-export * as auth from './auth';
-export * as budget from './budget';
-
-//export { config } from './config';
-export const license = 'Apache-2.0';
+export { get } from './get';
