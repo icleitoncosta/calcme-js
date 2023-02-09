@@ -1,16 +1,24 @@
 {
   "name": "calcme-js",
   "version": "0.0.1",
+  "private": false,
   "description": "Projeto open-source para exportar as funcoes do CalcMe sistemas para comunicacao visual, e poder chama-las remotamente",
   "license": "Apache-2.0",
+  "main": "dist/index.js",
   "author": {
     "name": "Cleiton Carvalho",
     "email": "cleitoncostacarvalho2019@gmail.com",
     "url": "https://github.com/icleitoncosta"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icleitoncosta/calcme-js"
+  },
+  "homepage": "https://calcme-community.github.io/",
   "exports": {
     ".": "./dist/index.js"
   },
+  "keywords": ["brasil", "calcme", "graficas", "comunicacao visual", "calcme.com.br", "sistema de gestao", "api", "lib"],
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npm run build:types && npm run build:js",
