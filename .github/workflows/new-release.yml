@@ -41,4 +41,5 @@ jobs:
         run: yarn install
 
       - name: Release
-        run: 'npx release-it --increment --no-git.requireCleanWorkingDir ${{ github.event.inputs.increment }}'
+        run: 'npx release-it --increment --no-npm --no-git.requireCleanWorkingDir ${{ github.event.inputs.increment }}'
+ 
