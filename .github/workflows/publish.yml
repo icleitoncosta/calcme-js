@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     tags:
-      - '*'
+      - 'v*'
 
 jobs:
   publish:
@@ -39,7 +39,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci || npm install
         env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish in NPM
