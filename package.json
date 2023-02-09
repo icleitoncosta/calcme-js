@@ -1,5 +1,5 @@
 {
-  "name": "icleitoncosta/calcme-js",
+  "name": "calcme-js",
   "version": "0.0.1",
   "description": "Projeto open-source para exportar as funcoes do CalcMe sistemas para comunicacao visual, e poder chama-las remotamente",
   "license": "Apache-2.0",
