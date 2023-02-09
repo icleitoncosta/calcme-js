@@ -10,7 +10,5 @@
       "**/bower_components": true,
       "**/dist": true,
       "**/docs": true,
-      "**/userDataDir": true,
-      "**/wa-source": false
     }
   }
