@@ -9,12 +9,13 @@
     "url": "https://github.com/icleitoncosta"
   },
   "exports": {
-    ".": "./dist/calcMe-Func.js"
+    ".": "./dist/index.js"
   },
   "types": "dist/index.d.ts",
   "scripts": {
-    "build:dev": "webpack --devtool inline-source-map --mode development",
-    "build:prd": "webpack",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --copy-files",
     "changelog:last": "conventional-changelog -p angular -r 2",
     "changelog:preview": "conventional-changelog -p angular -u",
     "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s",
@@ -23,10 +24,13 @@
     "lint": "npx eslint --ext .ts src",
     "prepare": "husky install && npm run clean && npm run build:prd",
     "release": "release-it",
-    "watch": "webpack watch --devtool inline-source-map --mode development",
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.18.6",
     "@types/debug": "^4.1.7",
     "@types/node": "^18.6.1",
     "@types/parse-data-url": "^3.0.0",

@@ -1,0 +1,30 @@
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      [
+        "@babel/preset-typescript",
+        {
+          "targets": {
+            "node": "current"
+          },
+          "allowDeclareFields": true
+        }
+      ]
+    ],
+    "ignore": [
+      "**/*.test.ts"
+    ],
+    "env": {
+      "development": {
+        "sourceMaps": "inline",
+        "retainLines": true
+      }
+    }
+  }
