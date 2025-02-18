@@ -1,5 +1,5 @@
 /*!
- * Copyright 2022 Saturno Team
+ * Copyright 2023 Saturno Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,4 @@
  * limitations under the License.
  */
 
-export * as auth from './auth';
-export * as budget from './budget';
-export * as sellers from './sellers';
-export * as nfse from './nfse';
-export * as orders from './orders';
-
-//export { config } from './config';
-export const license = 'Apache-2.0';
+export * from './functions';
