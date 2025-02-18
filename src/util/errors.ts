@@ -15,18 +15,18 @@
  */
 
 export class CmError extends Error {
-  constructor(
-    readonly code: string,
-    message: string,
-    extra: { [key: string]: any } = {}
-  ) {
-    super(message);
-
-    if (extra) {
-      const keys = Object.keys(extra);
-      for (const key of keys) {
-        (this as any)[key] = extra[key];
+    constructor(
+      readonly code: string,
+      message: string,
+      extra: { [key: string]: any } = {}
+    ) {
+      super(message);
+  
+      if (extra) {
+        const keys = Object.keys(extra);
+        for (const key of keys) {
+          (this as any)[key] = extra[key];
+        }
       }
     }
   }
-}

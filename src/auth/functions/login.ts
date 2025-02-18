@@ -1,5 +1,5 @@
 /*!
- * Copyright 2022 Saturno Team
+ * Copyright 2025 Saturno Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,25 @@ import path from 'path';
 import { config } from '../../config';
 import userData from '../../user.json';
 import { request } from '../../util/request';
+import { Printshop } from '../../types/PrintShop';
+import { User } from '../../types/User';
 
 interface Login {
   username: string;
   password: string;
+}
+
+interface ResponseLoginData {
+  data: {
+    token: string;
+    user: User;
+    printshop: Printshop;
+    menu: any[][];
+    auth: any[];
+  };
+  errors: any[]; // Or a more specific error type
+  totalElements: null;
+  ids: null;
 }
 /**
  * Function to login user, and get data
@@ -35,18 +50,8 @@ interface Login {
  * ```
  * @category Auth
  */
-export async function login(loginData?: Login): Promise<{
-  data: {
-    token: string;
-    user: any;
-    printshop: any;
-    menu: any;
-    auth: {
-      authority: string;
-    }[];
-  };
-  errors: any;
-}> {
+
+export async function login(loginData?: Login): Promise<ResponseLoginData> {
   const user = loginData?.username ? loginData.username : userData.login;
   const pass = loginData?.password ? loginData.password : userData.password;
 
