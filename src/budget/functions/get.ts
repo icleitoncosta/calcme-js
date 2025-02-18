@@ -36,7 +36,7 @@ import { request } from '../../util/request';
  */
 export async function get(
   page = 0,
-  limit = 10
+  limit = 10,
 ): Promise<{
   data: {
     content: Budget[];
@@ -54,7 +54,7 @@ export async function get(
   errors: any;
 }> {
   try {
-    const { data }: any = await request.get(`/estimate/list/${page}/${limit}`);
+    const { data }: any = await request.get(`/api/estimate/list?page${page}&count=${limit}`);
     return data;
   } catch (error: any) {
     if (error.response.status === 401) {
