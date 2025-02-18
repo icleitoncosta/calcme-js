@@ -42,6 +42,7 @@
     "prepare": "husky install && npm run clean && npm run build",
     "release": "release-it",
     "test": "jest",
+    "example:orders": "ts-node examples/get-orders",
     "docs:build": "npm run docs:clean && npm run docs:theme && typedoc --gitRevision main",
     "docs:clean": "shx rm -rf docs",
     "docs:theme": "cd ./docs-source && tsc"

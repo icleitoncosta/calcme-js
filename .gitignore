@@ -9,4 +9,4 @@
 /userDataDir*
 /source
 yarn.lock
-/src/user.json
+/src/user.*
