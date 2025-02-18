@@ -15,7 +15,7 @@
  */
 
 export const config = {
-  baseURL: 'https://serv.calcme.com.br/api',
+  baseURL: 'https://serv.calcme.com.br/',
   // Change data to your location - check with https://www.iplocation.net/
   fakeLookup: {
     ip: '200.202.107.119',

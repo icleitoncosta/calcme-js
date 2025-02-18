@@ -35,9 +35,7 @@ export async function all(): Promise<{
   ids: null;
 }> {
   try {
-    const { data }: any = await request.get(`/api/nfse/sellers/`, {
-        baseURL: 'https://serv.calcme.com.br/',
-    });
+    const { data }: any = await request.get(`/api/nfse/sellers/`);
     return data;
   } catch (error: any) {
     if (error.response.status === 401) {

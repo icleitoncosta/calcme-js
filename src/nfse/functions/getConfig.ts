@@ -42,9 +42,7 @@ export async function getConfig(): Promise<{
   ids: null;
 }> {
   try {
-    const { data }: any = await request.get(`/api/nfse/configs/`, {
-        baseURL: 'https://serv.calcme.com.br/',
-    });
+    const { data }: any = await request.get(`/api/nfse/configs/`);
     return data;
   } catch (error: any) {
     if (error.response.status === 401) {

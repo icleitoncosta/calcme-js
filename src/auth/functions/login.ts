@@ -56,7 +56,7 @@ export async function login(loginData?: Login): Promise<ResponseLoginData> {
   const pass = loginData?.password ? loginData.password : userData.password;
 
   try {
-    const { data }: any = await request.post('/login', {
+    const { data }: any = await request.post('/api/login', {
       username: user,
       password: pass,
       lookup: config.fakeLookup,
