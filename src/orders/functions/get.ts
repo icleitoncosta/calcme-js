@@ -36,7 +36,7 @@ import { request } from '../../util/request';
  */
 export async function get(
   page = 0,
-  limit = 10,
+  limit = 10
 ): Promise<{
   data: {
     content: Order[];
@@ -54,14 +54,16 @@ export async function get(
   errors: any;
 }> {
   try {
-    const { data }: any = await request.get(`/api/order/list/?page${page}&count=${limit}&orderName=idInt`);
+    const { data }: any = await request.get(
+      `/api/order/list/?page${page}&count=${limit}&orderName=idInt`
+    );
     return data;
   } catch (error: any) {
-    if (error.response.status === 401) {
+    if (error?.response?.status === 401) {
       await login();
       return await get(page, limit);
-    } else if (error.response) {
-      return error.response.data;
+    } else if (error?.response) {
+      return error?.response.data;
     } else {
       return error;
     }

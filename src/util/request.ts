@@ -22,7 +22,7 @@ import userData from '../user.json';
 
 const request = axios.create({
   baseURL: config.baseURL,
-  timeout: 3000,
+  timeout: 10000,
   headers: { 'x-access-token': userData.token as string },
 });
 
@@ -33,10 +33,10 @@ request.interceptors.response.use(
     return response;
   },
   async (error) => {
-    if (error.response.status === 401) {
+    if (error?.response?.status === 401) {
       await login();
     }
-    return error;
+    throw error;
   }
 );
 
