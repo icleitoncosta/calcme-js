@@ -14,5 +14,7 @@
  * limitations under the License.
  */
 
-export { getConfig } from './getConfig';
-export { newNFSe } from './newNFSe';
+export interface AddressDelivery {
+  index: number;
+  enderecoString: string;
+}

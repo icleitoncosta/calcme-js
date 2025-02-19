@@ -14,11 +14,17 @@
  * limitations under the License.
  */
 
+import { Customer } from './types/Customer';
+
 export * as auth from './auth';
 export * as budget from './budget';
-export * as sellers from './sellers';
+export * as customer from './customer';
 export * as nfse from './nfse';
 export * as orders from './orders';
+export * as sellers from './sellers';
+
+export const customers: Customer[] = [];
+export const products = [];
 
 //export { config } from './config';
 export const license = 'Apache-2.0';

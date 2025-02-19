@@ -14,5 +14,14 @@
  * limitations under the License.
  */
 
-export { getConfig } from './getConfig';
-export { newNFSe } from './newNFSe';
+export interface Activity {
+  codigoServico: string;
+  codigoServicoMun: string;
+  codigoTributacao: string;
+  impostoFederal: number;
+  impostoMunicipal: number;
+  descricao: string;
+  cnaeSecundario: null;
+  principal: boolean;
+  search: string;
+}
