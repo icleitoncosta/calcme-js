@@ -1,3 +1,7 @@
+## 0.1.1 (2025-02-20)
+
+
+
 # CHANGELOG
 
 ## [v0.1.0](https://github.com/icleitoncosta/calcme-js/releases/tag/v0.1.0) - 2025-02-19 22:40:11+00:00
