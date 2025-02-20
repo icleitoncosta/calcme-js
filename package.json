@@ -1,6 +1,6 @@
 {
   "name": "calcme-js",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "private": false,
   "description": "Projeto open-source para exportar as funcoes do CalcMe sistemas para comunicacao visual, e poder chama-las remotamente",
   "license": "Apache-2.0",
