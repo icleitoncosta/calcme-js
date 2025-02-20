@@ -45,6 +45,10 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: gh-pages
 
+      - name: Copiar documentos gerados
+        run: |
+          rm -rf gh-pages/reference
+          cp -r reference gh-pages/
 
       - name: Commit e Push para o GitHub Pages
         run: |
