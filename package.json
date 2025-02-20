@@ -45,7 +45,7 @@
     "example:orders": "ts-node examples/get-orders",
     "example:auto-nf": "ts-node examples/emite-nfse-automaticamente",
     "docs:build": "npm run docs:clean && npm run docs:theme && typedoc --gitRevision main",
-    "docs:clean": "shx rm -rf docs",
+    "docs:clean": "shx rm -rf reference",
     "docs:theme": "cd ./docs-source && tsc"
   },
   "devDependencies": {
