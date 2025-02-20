@@ -1,5 +1,12 @@
-# Calcme-API
 
+
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-orange)
+# 🚧 Pacote em Construção 🚧
+**Atenção:** Este pacote ainda está em desenvolvimento.  
+Algumas funcionalidades podem estar incompletas ou sujeitas a mudanças.  
+Sinta-se à vontade para contribuir ou relatar problemas! 🚀
+
+# Calcme-API
 **Calcme-API** é um projeto/API de código aberto desenvolvido para exportar as funções do **CalcMe**, um sistema de gestão voltado para gráficas e empresas de comunicação visual. Com este projeto, você pode integrar as funcionalidades do **CalcMe** em suas próprias aplicações, criando APIs personalizadas ou chamando diretamente as funções fornecidas pelo sistema.
 
 ## Funcionalidades
