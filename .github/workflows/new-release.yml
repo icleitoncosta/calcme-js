@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Setup GIT
         run: |
@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: 14.x
+          node-version: 18.x
 
       - name: Get yarn cache directory
         id: yarn-cache
