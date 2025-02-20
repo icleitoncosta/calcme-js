@@ -6,12 +6,11 @@
   "excludePrivate": true,
   "excludeProtected": true,
   "includeVersion": true,
-  "out": "docs",
+  "out": "reference",
   "plugin": [
     "./docs-source/theme-dist",
     "typedoc-plugin-mdn-links",
     "typedoc-plugin-missing-exports"
   ],
   "theme": "google-tag-manager",
-  "gaID": "null"
 }
