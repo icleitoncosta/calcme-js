@@ -14,5 +14,7 @@
  * limitations under the License.
  */
 
+export { duplicate } from './duplicate';
+export { getById } from './getById';
 export { getConfig } from './getConfig';
 export { newNFSe } from './newNFSe';
