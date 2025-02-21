@@ -1,5 +1,5 @@
 /*!
- * Copyright 2022 Saturno Team
+ * Copyright 2025 Saturno Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,4 @@
  * limitations under the License.
  */
 
-import { Customer } from './types/Customer';
-import { User } from './types/User';
-
-export * as auth from './auth';
-export * as budget from './budget';
-export * as customer from './customer';
-export * as nfse from './nfse';
-export * as order from './order';
-export * as seller from './seller';
-export * as user from './user/';
-
-export const customers: Customer[] = [];
-export const users: User[] = [];
-export const products = [];
-
-//export { config } from './config';
-export const license = 'Apache-2.0';
+export * from './functions';
