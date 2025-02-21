@@ -41,14 +41,14 @@ jobs:
       - name: Checkout repositório do GitHub Pages
         uses: actions/checkout@v3
         with:
-          repository: calcme-community/calcme-community.github.io
+          repository: calcme-js/docs
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          path: gh-pages
+          path: files
 
       - name: Copiar documentos gerados
         run: |
-          rm -rf gh-pages/reference
-          cp -r reference gh-pages/
+          rm -rf files/docs/public/reference
+          cp -r reference files/docs/public/
 
       - name: Commit e Push para o GitHub Pages
         run: |
