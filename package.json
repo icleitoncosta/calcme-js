@@ -1,5 +1,5 @@
 {
-  "name": "calcme-api",
+  "name": "calcme-js",
   "version": "0.1.2",
   "private": false,
   "description": "Projeto open-source para exportar as funcoes do CalcMe sistemas para comunicacao visual, e poder chama-las remotamente",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/icleitoncosta/calcme-js"
   },
-  "homepage": "https://calcme-community.github.io/",
+  "homepage": "https://calcme-js.github.io/docs",
   "exports": {
     ".": "./dist/index.js"
   },

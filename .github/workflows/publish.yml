@@ -46,12 +46,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish as calcme-js
-        run: |
-          npm pkg set name="calcme-js"
-          npm publish --access public
-          git checkout package.json
-
       - name: Generate Changelog
         id: generate_changelog
         run: |
