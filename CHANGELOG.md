@@ -1,3 +1,12 @@
+# 0.2.0 (2025-02-21)
+
+
+### Features
+
+* Adicionado a funcao nfse.duplicate ([21c05cc](https://github.com/icleitoncosta/calcme-js/commit/21c05cc80e0319752b56fc919ebb0fba1a60d23f))
+
+
+
 ## 0.1.3 (2025-02-21)
 
 
